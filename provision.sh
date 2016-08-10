@@ -1,3 +1,6 @@
+#!/bin/bash
+sleep 90
+
 sudo apt-get update
 sudo apt-get upgrade -y
 
@@ -43,7 +46,7 @@ gpg -a --export E084DAB9 | sudo apt-key add -
 sudo apt-get update
 sudo apt-get -y install r-base
 echo "R_LIBS=~/R/library" > ~/.Renviron
-Rscript -e 'install.packages(c("devtools", "dplyr", "ggplot2", "knitr", "magrittr", "rmarkdown", "RSQLite", "stringr", "testthat", "tidyr"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.cnr.berkeley.edu/", "https://cran.revolutionanalytics.com/"), lib="~/R/library/")'
+Rscript -e 'install.packages(c("devtools", "dplyr", "ggplot2", "knitr", "magrittr", "readr", "rmarkdown", "RSQLite", "stringr", "testthat", "tidyr"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.cnr.berkeley.edu/", "https://cran.revolutionanalytics.com/"), lib="~/R/library/")'
 
 
 #-----------------------------

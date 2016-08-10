@@ -5,7 +5,7 @@
   },
   "builders": [{
     "access_key": "{{user `aws_access_key`}}",
-    "ami_name": "packer-example {{timestamp}}",
+    "ami_name": "CellProfiler-Ubuntu-14.04-LTS-packer {{timestamp}}",
     "associate_public_ip_address" : true,
     "instance_type": "c4.xlarge",
     "region": "us-east-1",
@@ -19,10 +19,6 @@
   }],
   "provisioners": [{
     "type": "shell",
-    "inline": [
-      "sleep 30",
-      "sudo apt-get update",
-      "sudo apt-get install -y redis-server"
-    ]
+    "script": "provision.sh"
   }]  
 }
