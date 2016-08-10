@@ -69,7 +69,8 @@ mkdir -p ~/work/software/cytominr
 cd ~/work/software/archives/cytominr
 pyenv local 3.5.1
 pip install --upgrade pip
-pip install git+git://github.com/0x00b1/persistence.git@5e12c8a
+pip install git+git://github.com/0x00b1/persistence.git
+pip install IPython
 Rscript -e 'devtools::install_github("CellProfiler/cytominr")'
 
 #-----------------------------
