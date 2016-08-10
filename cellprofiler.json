@@ -11,7 +11,7 @@
     "region": "us-east-1",
     "secret_key": "{{user `aws_secret_key`}}",
     "security_group_ids": ["sg-74b99a0f", "sg-2a88ab51"],
-    "source_ami": "ami-bb75fbac",
+    "source_ami": "ami-2d39803a",
     "ssh_username": "ubuntu",
     "subnet_id" : "subnet-d2d5c7a4",
     "type" : "amazon-ebs",
