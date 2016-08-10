@@ -42,14 +42,15 @@ gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
 gpg -a --export E084DAB9 | sudo apt-key add -
 sudo apt-get update
 sudo apt-get -y install r-base
-Rscript -e 'install.packages(c("dplyr", "stringr", "tidyr", "magrittr", "devtools", "knitr", "rmarkdown", "RSQLite", "testthat"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.cnr.berkeley.edu/", "https://cran.revolutionanalytics.com/"))'
+echo "R_LIBS=~/R/library" > ~/.Renviron
+Rscript -e 'install.packages(c("devtools", "dplyr", "ggplot2", "knitr", "magrittr", "rmarkdown", "RSQLite", "stringr", "testthat", "tidyr"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.cnr.berkeley.edu/", "https://cran.revolutionanalytics.com/"), lib="~/R/library/")'
 
 
 #-----------------------------
 # Python
 # https://github.com/yyuu/pyenv
 #-----------------------------
-sudo apt-get install python python-dev python-pip postgresql libreadline6 libreadline6-dev sqlite3 libsqlite3-dev bzip2 libbz2-dev libpq-dev mysql-client-core-5.5
+sudo apt-get install -y python python-dev python-pip postgresql libreadline6 libreadline6-dev sqlite3 libsqlite3-dev bzip2 libbz2-dev libpq-dev mysql-client-core-5.5
 mkdir -p ~/work/software/archives
 cd ~/work/software/archives
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
@@ -58,8 +59,18 @@ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 exec $SHELL
 pyenv install 3.5.1
-pyenv install 2.7.11
+pyenv install 2.7.12
 # Do `pip install IPython` within each 
+
+#-----------------------------
+# cytominr
+#-----------------------------
+mkdir -p ~/work/software/cytominr
+cd ~/work/software/archives/cytominr
+pyenv local 3.5.1
+pip install --upgrade pip
+pip install git+git://github.com/0x00b1/persistence.git@5e12c8a
+Rscript -e 'devtools::install_github("CellProfiler/cytominr")'
 
 #-----------------------------
 # docker
@@ -80,5 +91,7 @@ sudo usermod -aG docker ubuntu
 #logout
 #sleep 60
 #sudo service docker start
-#sudo docker run hello-world
+#docker run hello-world
+#docker run shntnu/CellProfiler
+
 
