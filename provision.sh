@@ -33,8 +33,27 @@ sudo mount -a
 sudo apt-get install -y nfs-common
 sudo mkdir ~/efs
 sudo chown ubuntu ~/efs/
-sudo mount -t nfs4 -o nfsvers=4.1 $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone).fs-3609f37f.efs.us-east-1.amazonaws.com:/ ~/efs
+# TODO: append this to .bashrc
+echo 'sudo mount -t nfs4 -o nfsvers=4.1 $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone).fs-3609f37f.efs.us-east-1.amazonaws.com:/ ~/efs' >> ~/.bashrc
 
+#-----------------------------
+# Python
+# https://github.com/yyuu/pyenv
+#-----------------------------
+sudo apt-get install -y python python-dev python-pip postgresql libreadline6 libreadline6-dev sqlite3 libsqlite3-dev bzip2 libbz2-dev libpq-dev mysql-client-core-5.5
+mkdir -p ~/work/software/archives
+cd ~/work/software/archives
+git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+pyenv install 3.5.1
+pyenv install 2.7.12
+# Do `pip install IPython` within each 
 
 #-----------------------------
 # R
@@ -49,22 +68,6 @@ mkdir -p ~/R/library
 echo "R_LIBS=~/R/library" > ~/.Renviron
 Rscript -e 'install.packages(c("devtools", "dplyr", "ggplot2", "knitr", "magrittr", "readr", "rmarkdown", "RSQLite", "stringr", "testthat", "tidyr"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.cnr.berkeley.edu/", "https://cran.revolutionanalytics.com/"), lib="~/R/library/")'
 
-
-#-----------------------------
-# Python
-# https://github.com/yyuu/pyenv
-#-----------------------------
-sudo apt-get install -y python python-dev python-pip postgresql libreadline6 libreadline6-dev sqlite3 libsqlite3-dev bzip2 libbz2-dev libpq-dev mysql-client-core-5.5
-mkdir -p ~/work/software/archives
-cd ~/work/software/archives
-git clone https://github.com/yyuu/pyenv.git ~/.pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-exec $SHELL
-pyenv install 3.5.1
-pyenv install 2.7.12
-# Do `pip install IPython` within each 
 
 #-----------------------------
 # cytominr
