@@ -55,10 +55,12 @@ pyenv install 3.5.1
 pyenv install 2.7.12
 
 pyenv shell 3.5.1
-pip install IPython yaml
+pip install --upgrade pip
+pip install IPython pyyaml
 
 pyenv shell 2.7.12
-pip install IPython yaml
+pip install --upgrade pip
+pip install IPython pyyaml
 
 #-----------------------------
 # R
