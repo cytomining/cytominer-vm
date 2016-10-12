@@ -79,9 +79,11 @@ Rscript -e 'install.packages(c("devtools", "dplyr", "ggplot2", "knitr", "magritt
 #-----------------------------
 # cytominer
 #-----------------------------
+pyenv shell 3.5.1
 pip install --upgrade pip
 pip install git+git://github.com/0x00b1/persistence.git
 pip install IPython
+
 Rscript -e 'devtools::install_github("CellProfiler/cytominer", dependencies=TRUE)'
 
 #-----------------------------
