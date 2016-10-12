@@ -4,7 +4,7 @@ sleep 90
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y emacs htop pandoc parallel postgresql-client-common python-pip sqlite tree zip 
+sudo apt-get install -y emacs htop jq pandoc parallel postgresql-client-common python-pip sqlite tree zip 
 sudo pip install awscli
 
 #-----------------------------
@@ -53,7 +53,12 @@ eval "$(pyenv init -)"
 
 pyenv install 3.5.1
 pyenv install 2.7.12
-# Do `pip install IPython` within each 
+
+pyenv shell 3.5.1
+pip install IPython yaml
+
+pyenv shell 2.7.12
+pip install IPython yaml
 
 #-----------------------------
 # R
@@ -70,15 +75,12 @@ Rscript -e 'install.packages(c("devtools", "dplyr", "ggplot2", "knitr", "magritt
 
 
 #-----------------------------
-# cytominr
+# cytominer
 #-----------------------------
-mkdir -p ~/work/software/cytominr
-cd ~/work/software/archives/cytominr
-pyenv local 3.5.1
 pip install --upgrade pip
 pip install git+git://github.com/0x00b1/persistence.git
 pip install IPython
-Rscript -e 'devtools::install_github("CellProfiler/cytominr")'
+Rscript -e 'devtools::install_github("CellProfiler/cytominer", dependencies=TRUE)'
 
 #-----------------------------
 # docker
