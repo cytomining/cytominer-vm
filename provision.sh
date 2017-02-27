@@ -4,7 +4,7 @@ sleep 90
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y emacs htop jq pandoc parallel postgresql-client-common python-pip sqlite tree zip 
+sudo apt-get install -y emacs htop jq pandoc parallel postgresql-client-common python-pip sqlite tree zip
 sudo pip install awscli
 
 #-----------------------------
@@ -23,7 +23,7 @@ sudo make install
 cd ~
 mkdir ~/bucket
 echo 'imaging-platform /home/ubuntu/bucket fuse.s3fs    _netdev,allow_other,iam_role=s3-imaging-platform-role,uid=1000,gid=1000,umask=0022 0 0' | sudo tee --append /etc/fstab
-sudo mount -a 
+sudo mount -a
 
 #-----------------------------
 # EFS

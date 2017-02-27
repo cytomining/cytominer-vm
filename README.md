@@ -7,4 +7,3 @@ CellProfiler AMI
 
     packer build cellprofiler.json
 
-    
