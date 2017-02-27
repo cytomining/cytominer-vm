@@ -1,7 +1,7 @@
 # cellprofiler_ami
 CellProfiler AMI
 
-	aws configure
+    aws configure
 
     packer validate cellprofiler.json
 
