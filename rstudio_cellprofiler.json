@@ -20,6 +20,10 @@
   "provisioners": [{
     "type": "shell",
     "script": "provision.sh"
+  },
+  {
+    "type": "shell",
+    "script": "provision_rstudio.sh"
   }]
 }
 
