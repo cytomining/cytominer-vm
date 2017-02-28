@@ -4,7 +4,7 @@ sleep 90
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y emacs htop jq libfftw3-dev pandoc parallel postgresql-client-common python-pip sqlite tree zip 
+sudo apt-get install -y emacs htop jq libfftw3-dev pandoc parallel postgresql-client-common python-pip sqlite libtiff5 libtiff5-dev tree zip 
 sudo pip install awscli
 
 #-----------------------------
