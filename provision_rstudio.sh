@@ -15,7 +15,7 @@ sudo su -c "Rscript -e \"devtools::install_github('CellProfiler/cytominer', depe
 #-----------------------------
 # change permissions so that rstudio can write to ubuntu directory
 #-----------------------------
-sudo usermod -aG ubuntu rstudio
+sudo usermod -aG rstudio ubuntu
 
 sudo chmod 775 /home/ubuntu/efs/
 
