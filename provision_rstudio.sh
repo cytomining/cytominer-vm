@@ -17,8 +17,6 @@ sudo su -c "Rscript -e \"devtools::install_github('CellProfiler/cytominer', depe
 #-----------------------------
 sudo usermod -aG ubuntu rstudio
 
-sudo chmod 775 /home/ubuntu/
-
 sudo chmod 775 /home/ubuntu/efs/
 
 sudo chmod 775 /home/ubuntu/bucket/
