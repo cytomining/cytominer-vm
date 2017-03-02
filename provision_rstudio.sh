@@ -12,13 +12,3 @@ sudo su -c "Rscript -e \"install.packages(c('devtools', 'docopts', 'dplyr', 'fea
 sudo su -c "Rscript -e \"devtools::install_github('CellProfiler/cytominer', dependencies=TRUE)\"" rstudio
 
 
-#-----------------------------
-# change permissions so that rstudio can write to ubuntu directory
-#-----------------------------
-sudo usermod -aG rstudio ubuntu
-
-sudo chmod 775 /home/ubuntu/efs/
-
-sudo chmod 775 /home/ubuntu/bucket/
-
-
