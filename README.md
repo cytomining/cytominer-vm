@@ -1,5 +1,4 @@
-# cellprofiler_ami
-CellProfiler AMI
+# cytominer VMs
 
     aws configure
 
