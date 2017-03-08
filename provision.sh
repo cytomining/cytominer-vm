@@ -4,7 +4,7 @@ sleep 90
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y emacs htop jq libfftw3-dev pandoc parallel postgresql-client-common python-pip sqlite libtiff5 libtiff5-dev tree zip 
+sudo apt-get install -y emacs htop jq libfftw3-dev pandoc parallel postgresql-client-common python-pip sqlite libtiff5 libtiff5-dev tree zip
 sudo pip install awscli
 
 #-----------------------------
@@ -81,7 +81,7 @@ Rscript -e 'install.packages(c("devtools", "docopts", "dplyr", "feather", "ggplo
 #-----------------------------
 pyenv shell 3.5.1
 pip install --upgrade pip
-pip install cytominer-database
+pip install git+git://github.com/cytomining/cytominer-database.git
 pip install IPython
 
 Rscript -e 'devtools::install_github("CellProfiler/cytominer", dependencies=TRUE)'
