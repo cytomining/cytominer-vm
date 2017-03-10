@@ -73,7 +73,7 @@ sudo apt-get update
 sudo apt-get -y install r-base
 mkdir -p ~/R/library
 echo "R_LIBS=~/R/library" > ~/.Renviron
-Rscript -e 'install.packages(c("devtools", "docopts", "dplyr", "feather", "ggplot2", "knitr", "magrittr", "readr", "rmarkdown", "RSQLite", "stringr", "testthat", "tidyr"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.cnr.berkeley.edu/", "https://cran.revolutionanalytics.com/"), lib="~/R/library/")'
+Rscript -e 'install.packages(c("devtools", "docopt", "dplyr", "feather", "ggplot2", "knitr", "magrittr", "readr", "rmarkdown", "RSQLite", "stringr", "testthat", "tidyr"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.cnr.berkeley.edu/", "https://cran.revolutionanalytics.com/"), lib="~/R/library/")'
 
 
 #-----------------------------
