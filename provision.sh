@@ -84,7 +84,7 @@ pip install --upgrade pip
 pip install git+git://github.com/cytomining/cytominer-database.git
 pip install IPython
 
-Rscript -e 'devtools::install_github("CellProfiler/cytominer", dependencies=TRUE)'
+Rscript -e 'devtools::install_github("cytomining", "cytominer", dependencies=TRUE)'
 
 #-----------------------------
 # docker
