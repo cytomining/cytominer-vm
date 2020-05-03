@@ -17,8 +17,13 @@ mkdir -p ~/R/library
 
 echo "R_LIBS=~/R/library" > ~/.Renviron
 
-# Here are options for installing specific versions
-# - use conda to specify
-# - to create a cytominer-vm dummy package on github and then install that
+Rscript -e 'install.packages(c("devtools"), repos = "http://cran.us.r-project.org", Ncpus=4)'
 
-Rscript -e 'install.packages(c("devtools", "docopt", "dplyr", "feather", "ggplot2", "knitr", "magrittr", "readr", "rmarkdown", "RSQLite", "stringr", "testthat", "tidyr", "tidyverse"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.rstudio.com/", "https://cran.revolutionanalytics.com/"), lib="~/R/library/")'
+Rscript -e 'devtools::install_version("cytominer", version = "0.2.1", repos = "http://cran.us.r-project.org", dependencies=TRUE, Ncpus=4)'
+
+# cytotools doesn't current have tidyr as a dep but will eventually
+# (but cytominer_script needs it)
+Rscript -e 'install.packages(c("tidyr"), repos = "http://cran.us.r-project.org", Ncpus=4)'
+
+Rscript -e 'devtools::install_github("cytomining/cytotools", ref = "2fc846c", dependencies=TRUE)'
+
