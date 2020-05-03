@@ -2,23 +2,38 @@
 
 #-----------------------------
 # docker
-# https://docs.docker.com/engine/installation/linux/ubuntulinux/
+# https://docs.docker.com/engine/install/ubuntu/#prerequisites
 #-----------------------------
-sudo apt install -y apt-transport-https ca-certificates
 
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-
-sudo sh -c 'echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >  /etc/apt/sources.list.d/docker.list'
+sudo apt remove -y \
+    docker \
+    docker-engine \
+    docker.io \
+    containerd \
+    runc
 
 sudo apt update
 
-sudo apt purge lxc-docker
+sudo apt install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
 
-apt-cache policy docker-engine # Verify that right repository.
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-sudo apt install -y linux-image-extra-$(uname -r)
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
 
-sudo apt install -y docker-engine
+sudo apt update
+
+sudo apt install -y \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io
 
 sudo groupadd docker
 

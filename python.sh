@@ -72,15 +72,14 @@ pip install --upgrade \
 
 # This is done in tools.sh
 # sudo apt install build-essential checkinstall
+# sudo apt-get install parallel
 
 # This is done above
 # sudo apt install python python-dev python-setuptools python-dev build-essential
-
-# I doubt this is needed
-# sudo easy_install pip
-
-# This is done above
 # pip install --upgrade setuptools
+
+# TODO: I doubt this is needed any longer
+# sudo easy_install pip
 
 sudo apt -y install \
     cloud-image-utils \
