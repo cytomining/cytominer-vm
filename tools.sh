@@ -40,4 +40,3 @@ sudo apt install -y \
     libtiff5 \
     libtiff5-dev \
     libxslt1-dev
-
