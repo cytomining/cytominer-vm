@@ -2,13 +2,23 @@
 
 #-----------------------------
 # R
-# https://www.digitalocean.com/community/tutorials/how-to-set-up-r-on-ubuntu-14-04
+# https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04-quickstart
 #-----------------------------
-sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
-gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-gpg -a --export E084DAB9 | sudo apt-key add -
-sudo apt-get update
-sudo apt-get -y install r-base
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+
+sudo apt -y update
+
+sudo apt -y install r-base=3.6.3-1bionic
+
 mkdir -p ~/R/library
+
 echo "R_LIBS=~/R/library" > ~/.Renviron
-Rscript -e 'install.packages(c("devtools", "docopt", "dplyr", "feather", "ggplot2", "knitr", "magrittr", "readr", "rmarkdown", "RSQLite", "stringr", "testthat", "tidyr", "tidyverse"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.cnr.berkeley.edu/", "https://cran.revolutionanalytics.com/"), lib="~/R/library/")'
+
+# Here are options for installing specific versions
+# - use conda to specify
+# - to create a cytominer-vm dummy package on github and then install that
+
+Rscript -e 'install.packages(c("devtools", "docopt", "dplyr", "feather", "ggplot2", "knitr", "magrittr", "readr", "rmarkdown", "RSQLite", "stringr", "testthat", "tidyr", "tidyverse"), Ncpus=4, repos=c("http://cran.us.r-project.org", "https://cran.rstudio.com/", "https://cran.revolutionanalytics.com/"), lib="~/R/library/")'

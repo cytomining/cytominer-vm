@@ -29,7 +29,7 @@ aws configure
 
 ### Edit EFS and S3 configurations
 
-Edit `EFS_ID` in `efs.sh`, and `S3_ROLE` and `BUCKET_ID` appropriately.
+Edit `EFS_ID` in `efs.sh`, and `S3_ROLE` and `BUCKET_ID` is `s3.sh` appropriately.
 
 ### Validate and build
 
