@@ -44,9 +44,10 @@ pyenv install 3.8.2
 
 pyenv shell 3.8.2
 
-pip install --upgrade pip
-
-pip install --upgrade setuptools
+pip install --upgrade \
+    pip \
+    setuptools \
+    wheel
 
 #-----------------------------
 # pe2loaddata
@@ -67,8 +68,6 @@ pip install IPython pyyaml
 # https://github.com/CellProfiler/Distributed-CellProfiler/wiki/Before-you-get-started%3A-setting-up
 #-----------------------------
 
-cd
-
 # This is done in tools.sh
 # sudo apt install build-essential checkinstall
 
@@ -84,6 +83,8 @@ cd
 sudo apt -y install \
     cloud-image-utils \
     fabric
+
+cd ~
 
 # TODO Maybe specify git hash?
 git clone https://github.com/CellProfiler/Distributed-CellProfiler.git
