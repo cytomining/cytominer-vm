@@ -41,11 +41,3 @@ sudo apt install -y \
     libtiff5-dev \
     libxslt1-dev
 
-sudo apt install -y \
-    python \
-    python-dev \
-    python-pip \
-    python-setuptools
-
-# removed sudo below
-pip install awscli
