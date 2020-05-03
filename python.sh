@@ -55,7 +55,9 @@ pip install --upgrade \
 
 # This section will go once pe2loaddata is packaged
 
-pip install IPython pyyaml
+pip install --upgrade \
+    IPython \
+    pyyaml
 
 #-----------------------------
 # NOTE:
