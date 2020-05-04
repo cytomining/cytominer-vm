@@ -10,7 +10,7 @@ BUCKET_ID="imaging-platform"
 # s3fs
 # https://github.com/s3fs-fuse/s3fs-fuse
 #-----------------------------
-sudo apt install -y \
+sudo apt-get install -y \
     automake \
     autotools-dev \
     g++ \
@@ -32,7 +32,7 @@ cd s3fs-fuse
 
 ./autogen.sh
 
-./configure --prefix=/usr --with-openssl 
+./configure --prefix=/usr --with-openssl
 
 make
 

@@ -9,9 +9,10 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD
 
 sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
 
-sudo apt -y update
+sudo apt-get update -y
 
-sudo apt -y install r-base=3.6.3-1bionic
+sudo apt-get install -y \
+    r-base=3.6.3-1bionic
 
 mkdir -p ~/R/library
 

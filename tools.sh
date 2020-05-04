@@ -6,10 +6,10 @@
 
 # Do this first
 # See https://askubuntu.com/questions/909277/avoiding-user-interaction-with-tzdata-when-installing-certbot-in-a-docker-contai
-sudo apt install -y \
+sudo apt-get install -y \
     tzdata
 
-sudo apt install -y \
+sudo apt-get install -y \
     build-essential \
     bzip2 \
     checkinstall \
@@ -26,7 +26,7 @@ sudo apt install -y \
     tree \
     zip
 
-sudo apt install -y \
+sudo apt-get install -y \
     libbz2-dev \
     libffi-dev \
     libfftw3-dev \

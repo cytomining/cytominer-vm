@@ -7,7 +7,7 @@ EFS_ID="fs-3609f37f"
 # https://console.aws.amazon.com/efs/home?region=us-east-1#/filesystems
 #-----------------------------
 
-sudo apt install -y nfs-common
+sudo apt-get install -y nfs-common
 
 sudo mkdir ~/efs
 

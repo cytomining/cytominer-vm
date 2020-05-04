@@ -4,7 +4,7 @@
 # Python
 #-----------------------------
 
-sudo apt install -y \
+sudo apt-get install -y \
     python \
     python-dev \
     python-pip \
@@ -14,9 +14,6 @@ sudo apt install -y \
 # pyenv
 # https://github.com/yyuu/pyenv
 #-----------------------------
-
-# TODO: remove this commented-out line
-# sudo easy_install pip
 
 mkdir -p ~/work/software/archives
 
@@ -78,16 +75,16 @@ pip install --upgrade \
 # sudo apt install python python-dev python-setuptools python-dev build-essential
 # pip install --upgrade setuptools
 
-# TODO: I doubt this is needed any longer
+# This is no longer needed
+# See https://pip.pypa.io/en/stable/installing/
 # sudo easy_install pip
 
-sudo apt -y install \
+sudo apt-get install -y \
     cloud-image-utils \
     fabric
 
 cd ~
 
-# TODO Maybe specify git hash?
 git clone https://github.com/CellProfiler/Distributed-CellProfiler.git
 
 cd Distributed-CellProfiler/files
@@ -98,11 +95,8 @@ pyenv shell 3.8.2
 
 pip install -r requirements.txt
 
-# TODO: is this required?
-# or is this sufficient: pip install awscli
-pip install awscli --ignore-installed six
-
-pip install --upgrade awscli
+pip install --upgrade \
+    awscli
 
 #-----------------------------
 # cytominer
