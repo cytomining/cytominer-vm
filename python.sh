@@ -29,9 +29,19 @@ echo -e 'if [ -z "$BASH_VERSION" ]; then'\
       '\n  export PYENV_ROOT="$HOME/.pyenv"'\
       '\n  export PATH="$PYENV_ROOT/bin:$PATH"'\
       '\n  eval "$(pyenv init --path)"'\
-      '\nfi' >>~/.profile
+      '\nfi'  | cat - ~/.profile > temp && mv temp ~/.profile
 
-source ~/.profile
+. ~/.profile
+
+# In a non-interactive install, you can't do this:
+# exec "$SHELL"
+# and so you need to mock this:
+
+export PYENV_ROOT="$HOME/.pyenv"
+
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init -)"
 
 pyenv install 3.8.10
 
