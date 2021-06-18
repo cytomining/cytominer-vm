@@ -2,10 +2,9 @@
 This packer configuration creates a VM provisioned with tools need for
 profiling analysis.
 
-- Python and R packages
-- cytominer, cytotools, cytominer-database, and dependencies
+- Python packages
+- cytominer-database and dependencies
 - Distributed-CellProfiler and dependencies
-- Docker
 - Mount S3 (s3fs) so that CellProfiler can access files
 - Mount EFS
 
