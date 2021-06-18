@@ -18,27 +18,26 @@ cd ~/work/software/archives
 
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+#from the pyenv readme
 
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo -e 'if shopt -q login_shell; then' \
+      '\n  export PYENV_ROOT="$HOME/.pyenv"' \
+      '\n  export PATH="$PYENV_ROOT/bin:$PATH"' \
+      '\n eval "$(pyenv init --path)"' \
+      '\nfi' >> ~/.bashrc
+echo -e 'if [ -z "$BASH_VERSION" ]; then'\
+      '\n  export PYENV_ROOT="$HOME/.pyenv"'\
+      '\n  export PATH="$PYENV_ROOT/bin:$PATH"'\
+      '\n  eval "$(pyenv init --path)"'\
+      '\nfi' >>~/.profile
 
-echo -e 'eval "$(pyenv init -)"' >> ~/.bashrc
-
-# In a non-interactive install, you can't do this:
-# exec "$SHELL"
-# and so you need to mock this:
-
-export PYENV_ROOT="$HOME/.pyenv"
-
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-eval "$(pyenv init -)"
+source ~/.profile
 
 pyenv install 3.8.10
 
 pyenv shell 3.8.10
 
-pip install --upgrade \
+pip3 install --upgrade \
     pip \
     setuptools \
     wheel
