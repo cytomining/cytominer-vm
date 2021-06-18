@@ -5,8 +5,6 @@ profiling analysis.
 - Python packages
 - cytominer-database and dependencies
 - Distributed-CellProfiler and dependencies
-- Mount S3 (s3fs) so that CellProfiler can access files
-- Mount EFS
 
 In addition, it mounts
 - an S3 bucket so that CellProfiler can access files
