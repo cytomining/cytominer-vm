@@ -48,14 +48,6 @@
   },
   {
     "type": "shell",
-    "script": "r.sh"
-  },
-  {
-    "type": "shell",
     "script": "python.sh"
-  },
-  {
-    "type": "shell",
-    "script": "docker.sh"
   }]
 }
