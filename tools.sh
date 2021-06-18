@@ -16,15 +16,18 @@ sudo apt-get install -y \
     emacs \
     htop \
     jq \
-    mysql-client-core-5.7 \
     pandoc \
     parallel \
-    postgresql \
-    postgresql-client-common \
     sqlite \
     sqlite3 \
     tree \
     zip
+
+# TODO: These are likely not required
+sudo apt-get install -y \
+    mysql-client-core-5.7 \
+    postgresql \
+    postgresql-client-common
 
 sudo apt-get install -y \
     libbz2-dev \
