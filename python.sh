@@ -22,10 +22,10 @@ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
 echo -e 'export PYENV_ROOT="$HOME/.pyenv"' \
       '\nexport PATH="$PYENV_ROOT/bin:$PATH"' \
-      '\neval "$(pyenv init --path)"'  >> ~/.bashrc
+      '\neval "$(pyenv init -)"'  >> ~/.bashrc
 echo -e 'export PYENV_ROOT="$HOME/.pyenv"'\
       '\nexport PATH="$PYENV_ROOT/bin:$PATH"'\
-      '\neval "$(pyenv init --path)"' | cat - ~/.profile > temp && mv temp ~/.profile
+      '\neval "$(pyenv init -)"' | cat - ~/.profile > temp && mv temp ~/.profile
 
 . ~/.profile
 
