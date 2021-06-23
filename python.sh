@@ -2,56 +2,86 @@
 
 #-----------------------------
 # Python
+#-----------------------------
+
+sudo apt-get install -y \
+    python3-pip
+
+#-----------------------------
+# pyenv
 # https://github.com/yyuu/pyenv
 #-----------------------------
-sudo easy_install pip
 
 mkdir -p ~/work/software/archives
+
 cd ~/work/software/archives
-git clone https://github.com/yyuu/pyenv.git ~/.pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+#from the pyenv readme
+
+echo -e 'export PYENV_ROOT="$HOME/.pyenv"' \
+      '\nexport PATH="$PYENV_ROOT/bin:$PATH"' \
+      '\neval "$(pyenv init --path)"' \
+      '\neval "$(pyenv init -)"' >> ~/.bashrc
+echo -e 'export PYENV_ROOT="$HOME/.pyenv"'\
+      '\nexport PATH="$PYENV_ROOT/bin:$PATH"'\
+      '\neval "$(pyenv init --path)"' | cat - ~/.profile > temp && mv temp ~/.profile
+
+. ~/.profile
+
+# In a non-interactive install, you can't do this:
+# exec "$SHELL"
+# and so you need to mock this:
+
 export PYENV_ROOT="$HOME/.pyenv"
+
 export PATH="$PYENV_ROOT/bin:$PATH"
+
 eval "$(pyenv init -)"
 
-pyenv install 3.5.1
-pyenv install 2.7.12
+pyenv install 3.8.10
 
-pyenv shell 3.5.1
-pip install --upgrade pip
-pip install --upgrade setuptools
-pip install IPython pyyaml
+pyenv shell 3.8.10
 
-pyenv shell 2.7.12
-pip install --upgrade pip
-pip install --upgrade setuptools
-pip install IPython==5.0
-pip install pyyaml
-
-# DCP and cytominer are now configured within this script because
-# pyenv wouldn't load when they were moved into their own scripts
+pip3 install --upgrade \
+    pip \
+    setuptools \
+    wheel
 
 #-----------------------------
-# DCP
+# pe2loaddata
 #-----------------------------
-cd 
+
+cd ~
+
+git clone https://github.com/broadinstitute/pe2loaddata.git
+
+pip3 install --upgrade \
+    click \
+    PyYAML
+    
+cd pe2loaddata
+
+pip3 install -e . 
+
+
+#-----------------------------
+# DCP Control Node
+# https://github.com/CellProfiler/Distributed-CellProfiler/wiki/Before-you-get-started%3A-setting-up
+#-----------------------------
+
+cd ~
+
 git clone https://github.com/CellProfiler/Distributed-CellProfiler.git
-cd Distributed-CellProfiler/files
-pyenv local 2.7.12
-pyenv shell 2.7.12
-pip install -r requirements.txt
 
-#optional packages to be able to run ancillary DCP functions
-sudo apt-get install -y cloud-image-utils parallel python-pandas
+pip3 install --upgrade \
+    awscli \
+    boto3
 
 #-----------------------------
-# cytominer
+# cytominer-database
 #-----------------------------
-pyenv shell 3.5.1
-pip install --upgrade pip
-pip install git+git://github.com/cytomining/cytominer-database.git
-pip install IPython
 
-Rscript -e 'devtools::install_github("cytomining/cytominer", dependencies=TRUE)'
+pip3 install cytominer-database
+
