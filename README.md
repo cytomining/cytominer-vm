@@ -1,3 +1,6 @@
+This package is deprecated and will no longer be supported.
+Please use at your own risk!
+
 # VM for profiling
 This packer configuration creates a VM provisioned with tools need for
 profiling analysis.
